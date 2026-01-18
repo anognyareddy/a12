@@ -1,0 +1,56 @@
+#Python High order functions: lambda, filter, map,reduce
+#lambda : is an anonymous function, a function takes number of
+#arguments but one expression
+'''syntax: lambda arguments: expression'''
+#Example:
+x = lambda a: a*10
+print(x(10))
+
+#Filter: Items are filtered through a function
+'''syntax: filter(function,iterable)'''
+#Example:
+age = [21,34,12,15,22]
+def myfun(x):
+    if x<18:
+        return False
+    else:
+        return True
+adults = filter(myfun,age)
+for x in adults:
+
+    print(x)
+
+#Map function:executes a specifed function for each
+#item in an iterable
+'''syntax: map(function,iterables)'''
+#Example: Calculate length of each word in a tuple
+def myfun1(x):
+    return len(x)
+x = map(myfun1,('apple','ant','ass'))
+print(x)
+print(list(x))
+
+def myfun2(a, b):
+    return a+b
+x = map(myfun2,('apple','ant','ass'),('red','black','yellow'))
+print(x)
+print(list(x))
+
+
+#Python reduce() function
+'''The reduce() function accepts a function and a sequence
+and returns a single value calculated as follows:
+Initially, the function is called with the first two items
+from the sequence and the result is returned.
+The function is then called again with the result obtained
+in step 1 and the next value in the sequence. This process
+keeps repeating until there are items in the sequence.'''
+
+#Syntax: reduce(function, sequence[, initial]) -> value
+'''To use reduce(), you have to first import it as follows:
+    from functools import reduce # only in Python 3'''
+#Example:
+from functools import reduce
+def do_sum(x1,x2):
+    return x1+x2
+print(reduce(do_sum,[1,2,3,4,5]))
