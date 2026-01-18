@@ -1,0 +1,7 @@
+n=int(input("enter no.of employee details"))
+d={}
+for i in range(n):
+    name=input("enter name")
+    emp_sal=int(input("enter salary"))
+    d[name]=emp_sal
+print(d)
